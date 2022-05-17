@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: backend-sarra-jwt
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: XPost
+Implementation-Vendor-Id: com.sarra
+Build-Jdk: 1.8.0_301
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/backend-sarra-jwt
+Created-By: Maven Integration for Eclipse
+
