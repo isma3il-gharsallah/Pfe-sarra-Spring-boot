@@ -1,13 +1,11 @@
 package com.sarra.model;
 
-import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
  
 @Entity
@@ -25,17 +23,12 @@ public class Utilisateur {
 	private String motdepasse;
 	private String email;
 	private String disponibilite;
- 	
-	@ManyToMany(mappedBy = "UtilisateurCompetence")
-	Set<Competence> competences;
+ 
 	
 	@ManyToOne
     @JoinColumn(name="privilege", nullable=false)
     private Privilege privilege;
-	
-	
- 
-	
+
  
 	
 	public Utilisateur() {
@@ -53,24 +46,10 @@ public class Utilisateur {
 		this.email = email;
 	}
 
-
-	public Utilisateur(String nom, String prenom, String telephone , String login, String motdepasse,
-			String email, String disponibilite, Set<Competence> competences, Privilege privilege, Set<Ticket> tickets) {
-		super();
-		this.nom = nom;
-		this.prenom = prenom;
-		this.telephone = telephone;
- 		this.login = login;
-		this.motdepasse = motdepasse;
-		this.email = email;
-		this.disponibilite = disponibilite;
-		this.competences = competences;
-		this.privilege = privilege;
- 	}
-
+ 
 
 	public Utilisateur(String nom, String prenom, String telephone,   String login, String motdepasse,
-			String email, String disponibilite, Set<Competence> competences, Privilege privilege ) {
+			String email, String disponibilite , Privilege privilege ) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -79,14 +58,15 @@ public class Utilisateur {
 		this.motdepasse = motdepasse;
 		this.email = email;
 		this.disponibilite = disponibilite;
-		this.competences = competences;
-		this.privilege = privilege;
+ 		this.privilege = privilege;
  
 	}
  
 
  
+ 
 
+ 
 	public Privilege getPrivilege() {
 		return privilege;
 	}
@@ -95,13 +75,6 @@ public class Utilisateur {
 		this.privilege = privilege;
 	}
  
-	public Set<Competence> getCompetences() {
-		return competences;
-	}
-	public void setCompetences(Set<Competence> competences) {
-		this.competences = competences;
-	}
-
 	public Long getId_utilisateur() {
 		return id_utilisateur;
 	}
@@ -151,10 +124,8 @@ public class Utilisateur {
 	public void setDisponibilite(String disponibilite) {
 		this.disponibilite = disponibilite;
 	}
-	
-	
-
  
+
 
 	@Override
 	public boolean equals(Object obj) {

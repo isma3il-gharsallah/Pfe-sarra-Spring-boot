@@ -1,14 +1,14 @@
 package com.sarra.controller;
 
  
-import com.sarra.model.Utilisateur;
+import com.sarra.model.Competence;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import com.sarra.repositories.UserRepository;
+import com.sarra.repositories.CompetenceRepository;
 
 @CrossOrigin()
 @RestController
@@ -17,35 +17,35 @@ public class CompetenceController {
 
  
  @Autowired
- private UserRepository utilisateurRepository;
+ private CompetenceRepository competenceRepository;
  
-///////////all Utilisateur
+///////////all Competence
 @RequestMapping("/all")
-public List<Utilisateur> getUtilisateur() {
-return   utilisateurRepository.findAll();
+public List<Competence> getCompetence() {
+return   competenceRepository.findAll();
 }
 
-//////////get Utilisateur
+//////////get Competence
 @RequestMapping("/get")
-public Optional<Utilisateur> getUtilisateur(Long id){
-return utilisateurRepository.findById(id);
+public Optional<Competence> getCompetence(Long id){
+return competenceRepository.findById(id);
 }
 
-/////////save Utilisateur
+/////////save Competence
 @RequestMapping("/save")
-public Utilisateur saveUtilisateur(Utilisateur U ) {
+public Competence saveCompetence(Competence U ) {
 	
-	utilisateurRepository.save(U);
+	competenceRepository.save(U);
 return U;
 
 }
 
 
-/////////delete Utilisateur
+/////////delete Competence
 @RequestMapping("/delete")
-public String deleteUtilisateur(Long id){
+public String deleteCompetence(Long id){
 try {
-utilisateurRepository.deleteById(id);
+competenceRepository.deleteById(id);
 return "true";
 }
 catch(Exception e) {
@@ -55,9 +55,9 @@ return "false";
 }
 
 
-/////////update Utilisateur
+/////////update Competence
 @RequestMapping("/update")
-public Utilisateur updateUtilisateur(Utilisateur U){
-return utilisateurRepository.saveAndFlush(U);
+public Competence updateCompetence(Competence U){
+return competenceRepository.saveAndFlush(U);
 }
 }
