@@ -2,7 +2,7 @@ package com.sarra.model;
 
 import java.util.Set;
 
-import javax.persistence.Entity;
+ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +21,8 @@ public class Projet {
 	private Long id_projet;
 	
 	private String titre_projet;
-	private String DateDebut_projet;
-	private String DateFin_projet;
+	private String dateDebutprojet;
+	private String dateFinprojet;
 	private String description;
  
  
@@ -30,34 +30,52 @@ public class Projet {
 	private Utilisateur chefde_projet;
 	
 	
+	
 	@ManyToMany
 	@JoinTable(
 	  name = "ProjetEquipe", 
 	  joinColumns = @JoinColumn(name = "id_projet"), 
 	  inverseJoinColumns = @JoinColumn(name = "id_equipe"))
-	  Set<Equipe> ProjetEquipe;
+	  Set<Equipe> projetEquipe;
  
 
 	@OneToOne
 	private Rapport rapport;
 	 
+ 
+	
+	@ManyToOne
+	private Etat  etat_projet ;
 	 
 	public Projet() {
 		super();
 	}
 
 
-	public Projet(String titre_projet, String dateDebut_projet, String dateFin_projet, String description,
-			Utilisateur chefde_projet, Set<Equipe> projetEquipe , Rapport rapport) {
+ 
+  
+
+
+
+
+	public Projet(String titre_projet, String dateDebutprojet, String dateFinprojet, String description,
+			Utilisateur chefde_projet, Set<Equipe> projetEquipe, Rapport rapport, Etat etat_projet) {
 		super();
 		this.titre_projet = titre_projet;
-		DateDebut_projet = dateDebut_projet;
-		DateFin_projet = dateFin_projet;
+		this.dateDebutprojet = dateDebutprojet;
+		this.dateFinprojet = dateFinprojet;
 		this.description = description;
 		this.chefde_projet = chefde_projet;
-		ProjetEquipe = projetEquipe;
- 		this.rapport = rapport;
+		this.projetEquipe = projetEquipe;
+		this.rapport = rapport;
+		this.etat_projet = etat_projet;
 	}
+
+
+
+
+
+
 
 
 	public Long getId_projet() {
@@ -76,21 +94,9 @@ public class Projet {
 		this.titre_projet = titre_projet;
 	}
 
-	public String getDateDebut_projet() {
-		return DateDebut_projet;
-	}
+ 
 
-	public void setDateDebut_projet(String dateDebut_projet) {
-		DateDebut_projet = dateDebut_projet;
-	}
-
-	public String getDateFin_projet() {
-		return DateFin_projet;
-	}
-
-	public void setDateFin_projet(String dateFin_projet) {
-		DateFin_projet = dateFin_projet;
-	}
+  
 
 	public String getDescription() {
 		return description;
@@ -112,19 +118,92 @@ public class Projet {
 		this.chefde_projet = chefde_projet;
 	}
 
-
+ 
+ 
 
 	public Set<Equipe> getProjetEquipe() {
-		return ProjetEquipe;
+		return projetEquipe;
 	}
+
+
+
+
+
+
+	public String getDateDebutprojet() {
+		return dateDebutprojet;
+	}
+
+
+
+
+
+
+
+
+	public void setDateDebutprojet(String dateDebutprojet) {
+		this.dateDebutprojet = dateDebutprojet;
+	}
+
+
+
+
+
+
+
+
+	public String getDateFinprojet() {
+		return dateFinprojet;
+	}
+
+
+
+
+
+
+
+
+	public void setDateFinprojet(String dateFinprojet) {
+		this.dateFinprojet = dateFinprojet;
+	}
+
+
+
+
+
+
+
+
+	public Etat getEtat_projet() {
+		return etat_projet;
+	}
+
+
+
+
+
+
+
+
+	public void setEtat_projet(Etat etat_projet) {
+		this.etat_projet = etat_projet;
+	}
+
+
+
+
+
 
 
 
 	public void setProjetEquipe(Set<Equipe> projetEquipe) {
-		ProjetEquipe = projetEquipe;
+		this.projetEquipe = projetEquipe;
 	}
 
- 
+
+
+
+
 
 	public Rapport getRapport() {
 		return rapport;
@@ -133,6 +212,16 @@ public class Projet {
 
 	public void setRapport(Rapport rapport) {
 		this.rapport = rapport;
+	}
+
+
+	public Etat getEtat() {
+		return this.etat_projet ;
+	}
+
+
+	public void setEtat(Etat etat_projet) {
+		this.etat_projet  = etat_projet;
 	}
 
 

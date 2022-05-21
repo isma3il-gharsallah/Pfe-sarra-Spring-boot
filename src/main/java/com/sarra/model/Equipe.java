@@ -1,13 +1,11 @@
 package com.sarra.model;
 
-import java.util.Set;
-
+ 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
+ 
 @Entity
 public class Equipe {
 
@@ -21,15 +19,16 @@ public class Equipe {
 	private String Nb_Equipe;
 	private String Role;
 	private String Description;
+ 
 
-	@ManyToMany(mappedBy = "ProjetEquipe")
-	Set<Projet> projets;
 
-	
-	
 	public Equipe() {
 		super();
 	}
+
+	
+ 
+
 
 	public Long getId_equipe() {
 		return id_equipe;
@@ -71,13 +70,7 @@ public class Equipe {
 		Description = description;
 	}
 
-	public Set<Projet> getProjets() {
-		return projets;
-	}
-
-	public void setProjets(Set<Projet> projets) {
-		this.projets = projets;
-	}
+ 
 	
 	
 	
