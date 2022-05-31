@@ -23,8 +23,13 @@ public interface ProjetRepository extends JpaRepository<Projet, Long>{
 
 	 
 	 @Modifying
-	 @Query("UPDATE Projet SET etat_projet = 222, id_projet = :id_projet , dateDebutprojet = :dateDebutprojet , dateFinprojet = :dateFinprojet , description = :description ") 
+	 @Query("UPDATE Projet SET etat_projet = 222 , dateDebutprojet = :dateDebutprojet , dateFinprojet = :dateFinprojet , description = :description where id_projet = :id_projet") 
 	 void  updateDate(@Param("id_projet") Long id_projet ,@Param("dateDebutprojet") String dateDebutprojet ,@Param("dateFinprojet") String dateFinprojet ,@Param("description") String description  ) ;
  	 
+	 @Query("SELECT c FROM Projet  c where  chefde_projet.id_utilisateur= :chefde_projet order by id_projet desc ") 
+	 public  List<Projet> getListeProjetChef(@Param("chefde_projet") Long chefde_projet  ) ;
 
+	 
+	 
+	 //getListeProjetChef
 }

@@ -89,4 +89,12 @@ public   Projet getNewProjet(Long chefde_projet){
 	else
 	return null;
 }
+
+
+//////////get new Projet
+@RequestMapping("/allByChef")
+public  List<Projet> getListeProjetChef(Long chefde_projet){
+ return projetRepository.getListeProjetChef(chefde_projet)  ;
+ 
+}
 }

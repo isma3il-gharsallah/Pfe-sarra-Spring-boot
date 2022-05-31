@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 
@@ -13,7 +13,7 @@ public class Tache {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_tache;
+	private Long id;
 	private String name   ;
 	private String start ;
 	private String end ;
@@ -23,16 +23,16 @@ public class Tache {
 	private Utilisateur membre;
      
 	@ManyToOne
-	private Statut statut ;
+	private Custom custom ;
 	
 	 @ManyToOne
-	 private Module module;
+	 private Module parent;
 	 
 	 
 	 
 	 
 
-	public Tache(String name, String start, String end, boolean collapsed, Utilisateur membre, Statut statut,
+	public Tache(String name, String start, String end, boolean collapsed, Utilisateur membre, Custom custom,
 			Module module) {
 		super();
 		this.name = name;
@@ -40,8 +40,8 @@ public class Tache {
 		this.end = end;
 		this.collapsed = collapsed;
 		this.membre = membre;
-		this.statut = statut;
-		this.module = module;
+		this.custom = custom;
+		this.parent = module;
 	}
 
 	public Tache() {
@@ -49,11 +49,11 @@ public class Tache {
 	}
 
 	public Long getId_ticket() {
-		return id_tache;
+		return id;
 	}
 
 	public void setId_ticket(Long id_ticket) {
-		this.id_tache = id_ticket;
+		this.id = id_ticket;
 	}
 
 	public String getName() {
@@ -88,12 +88,12 @@ public class Tache {
 		this.collapsed = collapsed;
 	}
 
-	public Statut getStatut() {
-		return statut;
+	public Custom getStatut() {
+		return custom;
 	}
 
-	public void setStatut(Statut statut) {
-		this.statut = statut;
+	public void setStatut(Custom custom) {
+		this.custom = custom;
 	}
 
 	public Utilisateur getMembre() {
@@ -104,12 +104,12 @@ public class Tache {
 		this.membre = membre;
 	}
 
-	public Module getModule() {
-		return module;
+	public Long getModule() {
+		return parent.getId_module();
 	}
 
 	public void setModule(Module module) {
-		this.module = module;
+		this.parent = module;
 	}
 	
 	

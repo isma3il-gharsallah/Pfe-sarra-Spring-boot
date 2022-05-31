@@ -21,20 +21,20 @@ public class Module {
  
 	     
 		@ManyToOne
-		private Statut statut ;
+		private Custom custom ;
 	 
 	 
 		 @ManyToOne
 		 private Projet projet;
 
 
-		public Module(String name, String start, String end, boolean collapsed, Statut statut, Projet projet) {
+		public Module(String name, String start, String end, boolean collapsed, Custom custom, Projet projet) {
 			super();
 			this.name = name;
 			this.start = start;
 			this.end = end;
 			this.collapsed = collapsed;
-			this.statut = statut;
+			this.custom = custom;
 			this.projet = projet;
 		}
 
@@ -94,13 +94,16 @@ public class Module {
 		}
 
 
-		public Statut getStatut() {
-			return statut;
+ 
+
+
+		public Custom getCustom() {
+			return custom;
 		}
 
 
-		public void setStatut(Statut statut) {
-			this.statut = statut;
+		public void setCustom(Custom custom) {
+			this.custom = custom;
 		}
 
 

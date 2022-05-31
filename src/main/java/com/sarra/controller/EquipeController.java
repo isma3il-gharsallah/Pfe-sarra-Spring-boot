@@ -60,4 +60,11 @@ return "false";
 public Equipe updateEquipe(Equipe U){
 return equipeRepository.saveAndFlush(U);
 }
+
+ ///////////all Equipe By Project
+@RequestMapping("/EquipeByProject")
+public List<Equipe> EquipeByProject(Long id) {
+return   equipeRepository.EquipeByProject(id);
+}
+
 }

@@ -39,6 +39,8 @@ public class Projet {
 	  Set<Equipe> projetEquipe;
  
 
+	
+	
 	@OneToOne
 	private Rapport rapport;
 	 
@@ -71,13 +73,7 @@ public class Projet {
 		this.etat_projet = etat_projet;
 	}
 
-
-
-
-
-
-
-
+ 
 	public Long getId_projet() {
 		return id_projet;
 	}

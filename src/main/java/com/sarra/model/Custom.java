@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Statut {
+public class Custom {
 
 	@Id
 	String taskStatus;
@@ -12,7 +12,7 @@ public class Statut {
 	String taskLabelColor ;
 	
 	
-	public Statut(String taskStatus, String taskLabel, String taskLabelColor) {
+	public Custom(String taskStatus, String taskLabel, String taskLabelColor) {
 		super();
 		this.taskStatus = taskStatus;
 		this.taskLabel = taskLabel;
@@ -20,7 +20,7 @@ public class Statut {
 	}
 
 
-	public Statut( ) {
+	public Custom( ) {
 		super();
  
 	}
