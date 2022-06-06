@@ -9,7 +9,7 @@ import com.sarra.model.Custom;
 
 @Transactional
 
-public interface CustomRepository extends JpaRepository<Custom, Long>{
+public interface CustomRepository extends JpaRepository<Custom, String>{
 
 
 	 

@@ -26,9 +26,14 @@ public class Module {
 	 
 		 @ManyToOne
 		 private Projet projet;
+		 
+		 @ManyToOne
+		 private Equipe equipe;
 
+ 
 
-		public Module(String name, String start, String end, boolean collapsed, Custom custom, Projet projet) {
+		public Module(String name, String start, String end, boolean collapsed, Custom custom, Projet projet,
+				Equipe equipe) {
 			super();
 			this.name = name;
 			this.start = start;
@@ -36,7 +41,10 @@ public class Module {
 			this.collapsed = collapsed;
 			this.custom = custom;
 			this.projet = projet;
+			this.equipe = equipe;
 		}
+
+
 
 
 		public Module() {
@@ -115,6 +123,22 @@ public class Module {
 		public void setProjet(Projet projet) {
 			this.projet = projet;
 		}
+
+
+
+
+		public Equipe getEquipe() {
+			return equipe;
+		}
+
+
+
+
+		public void setEquipe(Equipe equipe) {
+			this.equipe = equipe;
+		}
+		
+		
 		 
 		 
        

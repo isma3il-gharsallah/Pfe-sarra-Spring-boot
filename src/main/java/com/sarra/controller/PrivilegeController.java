@@ -12,7 +12,7 @@ import com.sarra.repositories.PrivilegeRepository;
 
 @CrossOrigin 
 @RestController
-@RequestMapping({ "/Privilege" })
+@RequestMapping({ "/Privileges" })
 public class PrivilegeController {
 
  
